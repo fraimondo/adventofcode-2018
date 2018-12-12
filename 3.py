@@ -23,3 +23,9 @@ for t_x, t_y, w, h in claims:
     uses[t_x:t_x+w, t_y:t_y+h] += 1
 
 print(np.sum(uses > 1))
+
+for i_claim, (t_x, t_y, w, h) in enumerate(claims):
+    elems = np.unique(uses[t_x:t_x+w, t_y:t_y+h])
+    if len(elems) == 1 and elems[0] == 1:
+        print(i_claim + 1)
+        break
